@@ -1,0 +1,6 @@
+<?php
+$firstName= 'Ali';
+$lastName = 'Elzwawy';
+$age = 19;
+echo 'My name is ' . $firstName . ' ' . $lastName . ' ' . 'I am ' . $age . ' ' . 'years old'
+?>
