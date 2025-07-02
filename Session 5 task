@@ -1,0 +1,41 @@
+abstract class Vehicle{
+    protected $brand;
+    public function __construct($brand){
+        $this -> brand =$brand;
+    }
+    public function getBrand(){
+        return $this -> brand;
+    }
+    abstract function start();
+}
+class Car extends Vehicle{
+    function start(){
+        echo 'Car ' . $this ->brand . ' is starting with a key';
+    }
+}
+class Bike extends Vehicle{
+    function start(){
+        echo 'Bike ' . $this -> brand . ' is starting with a kick';
+    }
+}
+class Garage{
+    private $vehicles = [];
+    public function addVehicle(Vehicle $vehicle){
+        array_push($this -> vehicles,$vehicle);
+    }
+    public function showVehicles(){
+        for($i=0;$i<count($this -> vehicles);$i++){
+            echo $this->vehicles[$i] -> getBrand();
+            echo '<br>';
+            $this->vehicles[$i]-> start();
+            echo '<br>';
+        }
+    }
+}
+$car1 = new Car('Toyota');
+$bike1 = new Bike('Fuji');
+$garage1 = new Garage;
+$garage1 -> addVehicle($car1);
+$garage1 -> addVehicle($bike1);
+$garage1 -> showVehicles();
+?>
